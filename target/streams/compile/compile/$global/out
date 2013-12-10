@@ -1,0 +1,27 @@
+[debug] 
+[debug] Initial source changes: 
+[debug] 	removed:Set()
+[debug] 	added: Set(C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\com\revizions\App.scala)
+[debug] 	modified: Set()
+[debug] Removed products: Set()
+[debug] Modified external sources: Set()
+[debug] Modified binary dependencies: Set()
+[debug] Initial directly invalidated sources: Set(C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\com\revizions\App.scala)
+[debug] 
+[debug] Sources indirectly invalidated by:
+[debug] 	product: Set()
+[debug] 	binary dep: Set()
+[debug] 	external source: Set()
+[debug] Initially invalidated: Set(C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\com\revizions\App.scala)
+[info] Compiling 1 Scala source to C:\Users\Admin\Documents\GitHub\Revizion\target\scala-2.9.2\classes...
+[debug] Running cached compiler 4c9f4e9b, interfacing (CompilerInterface) with Scala compiler version 2.9.2
+[debug] Calling Scala compiler with arguments  (CompilerInterface):
+[debug] 	-d
+[debug] 	C:\Users\Admin\Documents\GitHub\Revizion\target\scala-2.9.2\classes
+[debug] 	-bootclasspath
+[debug] 	C:\Program Files\Java\jre7\lib\resources.jar;C:\Program Files\Java\jre7\lib\rt.jar;C:\Program Files\Java\jre7\lib\sunrsasign.jar;C:\Program Files\Java\jre7\lib\jsse.jar;C:\Program Files\Java\jre7\lib\jce.jar;C:\Program Files\Java\jre7\lib\charsets.jar;C:\Program Files\Java\jre7\lib\jfr.jar;C:\Program Files\Java\jre7\classes;C:\Users\Admin\.sbt\boot\scala-2.9.2\lib\scala-library.jar
+[debug] 	-classpath
+[debug] 	C:\Users\Admin\Documents\GitHub\Revizion\target\scala-2.9.2\classes
+[debug] Scala compilation took 3.998290591 s
+[debug] 	Invalidated direct: Set()
+[debug] Incrementally invalidated: Set()
