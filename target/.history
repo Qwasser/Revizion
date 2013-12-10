@@ -1,1 +1,11 @@
+set name := "Revizions"
+set version := "0.1"
+session save
 run
+eclipse
+update
+‡H
+update
+eclipse
+update
+eclipse
