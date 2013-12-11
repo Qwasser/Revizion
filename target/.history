@@ -11,3 +11,7 @@ update
 eclipse
 run
 test
+eclipse
+doc
+scaladoc
+doc

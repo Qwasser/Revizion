@@ -1,0 +1,5 @@
+package revisions 
+
+trait Versioned {
+
+}
