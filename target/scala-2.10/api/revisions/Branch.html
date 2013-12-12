@@ -46,7 +46,7 @@ versions on write
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
           <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="RootBranch.html" class="extype" name="revisions.RootBranch">RootBranch</a>, <a href="WorkBranch.html" class="extype" name="revisions.WorkBranch">WorkBranch</a></div>
+          <div class="subClasses hiddenContent"><a href="ParentedBranch.html" class="extype" name="revisions.ParentedBranch">ParentedBranch</a>, <a href="RootBranch.html" class="extype" name="revisions.RootBranch">RootBranch</a></div>
         </div></div>
         
 
@@ -203,6 +203,20 @@ versions on write
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="revisions.Branch#currentVersion" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="currentVersion:Int"></a>
+      <a id="currentVersion:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">currentVersion</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Current version id
+</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -326,6 +340,34 @@ versions on write
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="revisions.Branch#refCount" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="refCount:java.util.concurrent.atomic.AtomicInteger"></a>
+      <a id="refCount:AtomicInteger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">refCount</span><span class="result">: <span class="extype" name="java.util.concurrent.atomic.AtomicInteger">AtomicInteger</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">amount of branches pointing on this Branch
+</p>
+    </li><li name="revisions.Branch#release" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="release:Unit"></a>
+      <a id="release:Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">release</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Releases versions if they are not needed
+</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -409,6 +451,21 @@ versions on write
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="revisions.Branch#written" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="written:List[revisions.Versioned]"></a>
+      <a id="written:List[Versioned]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">var</span>
+      </span>
+      <span class="symbol">
+        <span class="name">written</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">List of written versioned objects (if object was not written
+we do not need to merge it)
+</p>
     </li></ol>
             </div>
 

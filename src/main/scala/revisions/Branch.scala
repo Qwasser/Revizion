@@ -1,13 +1,42 @@
 package revisions 
 
 import java.util.concurrent.atomic.AtomicInteger
+
 /**
  * Class that tracks amount of written versions and creates 
  * versions on write
  */
-
 abstract class Branch {
   
+  /**
+   * List of written versioned objects (if object was not written
+   * we do not need to merge it)
+   */
+  var written: List[Versioned] = List()
+  
+  /**
+   * amount of branches pointing on this Branch
+   */
+  val refCount: AtomicInteger = new AtomicInteger(0)		
+  
+  /**
+   * Current version id
+   */
+  val currentVersion: Int = Branch.versionCount.getAndIncrement()
+  
+  /**
+   * Releases versions if they are not needed
+   */
+  def release: Unit = {
+    if (refCount.decrementAndGet() == 0){
+      written.foreach(_.releaseCurrent)
+    }
+    
+    this match {
+      case ParentedBranch(parent) => parent.release 
+    }
+		  
+  }
 }
 
 /**
@@ -15,18 +44,12 @@ abstract class Branch {
  */
 case class RootBranch extends Branch
 
-abstract class WorkBranch extends Branch {
+/**
+ * Branch with parent
+ */
+case class ParentedBranch(parent: Branch) extends Branch {
   
-  /**
-   * List of written versioned objects (if object was not written
-   * we do not need to merge it)
-   */
-  var written: List[Versioned] 
-  
-  /**
-   * amount of branches pointing on this Branch
-   */
-  var refCount: AtomicInteger			
+  parent.refCount.incrementAndGet()
 }
 
 /**
@@ -34,7 +57,7 @@ abstract class WorkBranch extends Branch {
  * Holds version count 
  */
 object Branch{
-  var versionCount: AtomicInteger = new AtomicInteger(0)
+  val versionCount: AtomicInteger = new AtomicInteger(0)
 }
 
 

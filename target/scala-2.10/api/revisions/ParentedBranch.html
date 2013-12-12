@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>WorkBranch - revisions.WorkBranch</title>
-          <meta name="description" content="WorkBranch - revisions.WorkBranch" />
-          <meta name="keywords" content="WorkBranch revisions.WorkBranch" />
+          <title>ParentedBranch - revisions.ParentedBranch</title>
+          <meta name="description" content="ParentedBranch - revisions.ParentedBranch" />
+          <meta name="keywords" content="ParentedBranch revisions.ParentedBranch" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../index.html';
-            var hash = 'revisions.WorkBranch';
+            var hash = 'revisions.ParentedBranch';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -26,22 +26,23 @@
       <div id="definition">
         <img src="../lib/class_big.png" />
         <p id="owner"><a href="package.html" class="extype" name="revisions">revisions</a></p>
-        <h1>WorkBranch</h1>
+        <h1>ParentedBranch</h1>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">class</span>
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">WorkBranch</span><span class="result"> extends <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>
+        <span class="name">ParentedBranch</span><span class="params">(<span name="parent">parent: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>)</span><span class="result"> extends <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Branch with parent
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="Branch.html" class="extype" name="revisions.Branch">Branch</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -59,7 +60,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="revisions.WorkBranch"><span>WorkBranch</span></li><li class="in" name="revisions.Branch"><span>Branch</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="revisions.ParentedBranch"><span>ParentedBranch</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="revisions.Branch"><span>Branch</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -79,16 +80,16 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="revisions.WorkBranch#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;():revisions.WorkBranch"></a>
-      <a id="&lt;init&gt;:WorkBranch"></a>
+              <ol><li name="revisions.ParentedBranch#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(parent:revisions.Branch):revisions.ParentedBranch"></a>
+      <a id="&lt;init&gt;:ParentedBranch"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">WorkBranch</span><span class="params">()</span>
+        <span class="name">ParentedBranch</span><span class="params">(<span name="parent">parent: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>)</span>
       </span>
       </h4>
       
@@ -97,42 +98,10 @@
 
         
 
-        <div id="values" class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="revisions.WorkBranch#refCount" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="refCount:java.util.concurrent.atomic.AtomicInteger"></a>
-      <a id="refCount:AtomicInteger"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">refCount</span><span class="result">: <span class="extype" name="java.util.concurrent.atomic.AtomicInteger">AtomicInteger</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">amount of branches pointing on this Branch
-</p>
-    </li><li name="revisions.WorkBranch#written" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="written:List[revisions.Versioned]"></a>
-      <a id="written:List[Versioned]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">written</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a>]</span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">List of written versioned objects (if object was not written
-we do not need to merge it)
-</p>
-    </li></ol>
-            </div>
+        
 
         <div id="values" class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:AnyRef):Boolean"></a>
       <a id="!=(AnyRef):Boolean"></a>
@@ -230,6 +199,21 @@ we do not need to merge it)
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="revisions.Branch#currentVersion" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="currentVersion:Int"></a>
+      <a id="currentVersion:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">currentVersion</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Current version id
+</p><div class="fullcomment"><div class="comment cmt"><p>Current version id
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -243,19 +227,6 @@ we do not need to merge it)
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a>
-      <a id="equals(Any):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -285,19 +256,6 @@ we do not need to merge it)
       </span>
       <span class="symbol">
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -353,6 +311,49 @@ we do not need to merge it)
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="revisions.ParentedBranch#parent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="parent:revisions.Branch"></a>
+      <a id="parent:Branch"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">parent</span><span class="result">: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="revisions.Branch#refCount" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="refCount:java.util.concurrent.atomic.AtomicInteger"></a>
+      <a id="refCount:AtomicInteger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">refCount</span><span class="result">: <span class="extype" name="java.util.concurrent.atomic.AtomicInteger">AtomicInteger</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">amount of branches pointing on this Branch
+</p><div class="fullcomment"><div class="comment cmt"><p>amount of branches pointing on this Branch
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></dd></dl></div>
+    </li><li name="revisions.Branch#release" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="release:Unit"></a>
+      <a id="release:Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">release</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Releases versions if they are not needed
+</p><div class="fullcomment"><div class="comment cmt"><p>Releases versions if they are not needed
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -366,19 +367,6 @@ we do not need to merge it)
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <a id="toString():String"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -436,6 +424,23 @@ we do not need to merge it)
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="revisions.Branch#written" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="written:List[revisions.Versioned]"></a>
+      <a id="written:List[Versioned]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">var</span>
+      </span>
+      <span class="symbol">
+        <span class="name">written</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">List of written versioned objects (if object was not written
+we do not need to merge it)
+</p><div class="fullcomment"><div class="comment cmt"><p>List of written versioned objects (if object was not written
+we do not need to merge it)
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></dd></dl></div>
     </li></ol>
             </div>
 
@@ -445,7 +450,15 @@ we do not need to merge it)
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="revisions.Branch">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="revisions.Branch">
               <h3>Inherited from <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>

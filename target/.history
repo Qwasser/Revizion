@@ -15,3 +15,6 @@ eclipse
 doc
 scaladoc
 doc
+compile
+compile -deprication
+doc

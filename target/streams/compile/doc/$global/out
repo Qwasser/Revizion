@@ -6,7 +6,7 @@
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
 [0m[[0mdebug[0m] [0m	C:\Program Files\Java\jre7\lib\resources.jar;C:\Program Files\Java\jre7\lib\rt.jar;C:\Program Files\Java\jre7\lib\sunrsasign.jar;C:\Program Files\Java\jre7\lib\jsse.jar;C:\Program Files\Java\jre7\lib\jce.jar;C:\Program Files\Java\jre7\lib\charsets.jar;C:\Program Files\Java\jre7\lib\jfr.jar;C:\Program Files\Java\jre7\classes;C:\Users\Admin\.sbt\boot\scala-2.10.2\lib\scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
-[0m[[0mdebug[0m] [0m	dummy_97a1d3b0[0m
+[0m[[0mdebug[0m] [0m	dummy_16736bd9[0m
 [0m[[0mdebug[0m] [0m	C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\revisions\Branch.scala[0m
 [0m[[0mdebug[0m] [0m	C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\revisions\Revision.scala[0m
 [0m[[0mdebug[0m] [0m	C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\revisions\Versioned.scala[0m
