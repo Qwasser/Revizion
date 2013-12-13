@@ -11,11 +11,13 @@ trait Versioned {
   
   def collapse: Unit = Unit
 	
+  def merge(joiny :Revision)
   
   
 }
 
 trait VersionedItem[T] extends Versioned {
+  
   /**
    * Map of item versions
    */

@@ -199,6 +199,19 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="revisions.Branch#collapse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="collapse(main:revisions.Revision):Unit"></a>
+      <a id="collapse(Revision):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">collapse</span><span class="params">(<span name="main">main: <a href="Revision.html" class="extype" name="revisions.Revision">Revision</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></dd></dl></div>
     </li><li name="revisions.Branch#currentVersion" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="currentVersion:Int"></a>
       <a id="currentVersion:Int"></a>
@@ -411,22 +424,20 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="revisions.Branch#written" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="written:List[revisions.Versioned]"></a>
-      <a id="written:List[Versioned]"></a>
+    </li><li name="revisions.Branch#write" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="write(obj:revisions.Versioned):Unit"></a>
+      <a id="write(Versioned):Unit"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">var</span>
+        <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">written</span><span class="result">: <span class="extype" name="scala.List">List</span>[<a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a>]</span>
+        <span class="name">write</span><span class="params">(<span name="obj">obj: <a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">List of written versioned objects (if object was not written
-we do not need to merge it)
-</p><div class="fullcomment"><div class="comment cmt"><p>List of written versioned objects (if object was not written
-we do not need to merge it)
+      <p class="shortcomment cmt">Lets branch know that versioned object is written
+</p><div class="fullcomment"><div class="comment cmt"><p>Lets branch know that versioned object is written
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></dd></dl></div>
     </li></ol>
             </div>

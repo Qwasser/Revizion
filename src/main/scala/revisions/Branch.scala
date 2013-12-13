@@ -68,6 +68,8 @@ case class ParentedBranch(parent: Branch) extends Branch {
  */
 object Branch{
   def apply(): Branch = new RootBranch
+  def apply(parent: Branch) = new ParentedBranch(parent)
+  
   private val versionCount: AtomicInteger = new AtomicInteger(0)
 }
 

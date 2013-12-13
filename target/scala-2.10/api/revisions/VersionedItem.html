@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Versioned - revisions.Versioned</title>
-          <meta name="description" content="Versioned - revisions.Versioned" />
-          <meta name="keywords" content="Versioned revisions.Versioned" />
+          <title>VersionedItem - revisions.VersionedItem</title>
+          <meta name="description" content="VersionedItem - revisions.VersionedItem" />
+          <meta name="keywords" content="VersionedItem revisions.VersionedItem" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../index.html';
-            var hash = 'revisions.Versioned';
+            var hash = 'revisions.VersionedItem';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -26,7 +26,7 @@
       <div id="definition">
         <img src="../lib/trait_big.png" />
         <p id="owner"><a href="package.html" class="extype" name="revisions">revisions</a></p>
-        <h1>Versioned</h1>
+        <h1>VersionedItem</h1>
       </div>
 
       <h4 id="signature" class="signature">
@@ -35,16 +35,13 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">Versioned</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">VersionedItem</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-          <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="../versionedObjects/VersionedInt.html" class="extype" name="versionedObjects.VersionedInt">VersionedInt</a>, <a href="VersionedItem.html" class="extype" name="revisions.VersionedItem">VersionedItem</a></div>
+          <div class="superTypes hiddenContent"><a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -62,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="revisions.Versioned"><span>Versioned</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="revisions.VersionedItem"><span>VersionedItem</span></li><li class="in" name="revisions.Versioned"><span>Versioned</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -185,7 +182,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="revisions.Versioned#collapse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="revisions.Versioned#collapse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="collapse:Unit"></a>
       <a id="collapse:Unit"></a>
       <h4 class="signature">
@@ -197,7 +194,7 @@
         <span class="name">collapse</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -256,6 +253,20 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="revisions.VersionedItem#getItem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getItem():T"></a>
+      <a id="getItem():T"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getItem</span><span class="params">()</span><span class="result">: <span class="extype" name="revisions.VersionedItem.T">T</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Gets item in the context of current version
+</p>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -321,7 +332,7 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="revisions.Versioned#releaseCurrent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="revisions.Versioned#releaseCurrent" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="releaseCurrent:Unit"></a>
       <a id="releaseCurrent:Unit"></a>
       <h4 class="signature">
@@ -333,7 +344,35 @@
         <span class="name">releaseCurrent</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Releases current version</p>
+      <p class="shortcomment cmt">Releases current version</p><div class="fullcomment"><div class="comment cmt"><p>Releases current version</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></dd></dl></div>
+    </li><li name="revisions.VersionedItem#rev" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="rev:revisions.Revision"></a>
+      <a id="rev:Revision"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rev</span><span class="result">: <a href="Revision.html" class="extype" name="revisions.Revision">Revision</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Evaluates current revision in threadlocal context
+</p>
+    </li><li name="revisions.VersionedItem#setItem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="setItem(item:T):Unit"></a>
+      <a id="setItem(T):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setItem</span><span class="params">(<span name="item">item: <span class="extype" name="revisions.VersionedItem.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Sets new value to item and additionally creates it's new version
+</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -426,7 +465,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="revisions.Versioned">
+              <h3>Inherited from <a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
