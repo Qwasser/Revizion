@@ -7,11 +7,11 @@ trait Versioned {
    * Releases current version
    * 
    */
-  def releaseCurrent: Unit = Unit
+  def releaseCurrent(branch: Branch): Unit 
   
-  def collapse: Unit = Unit
+  def collapse(branch: Branch): Unit
 	
-  def merge(joiny :Revision)
+  def merge(joiny :Revision, branch: Branch): Unit
   
   
 }
@@ -61,7 +61,35 @@ trait VersionedItem[T] extends Versioned {
     else
       startBranch match {
       	case ParentedBranch(parent) => getLatestVersionId(parent)
-      	case rootBranch => 0
+      	case rootBranch => throw new java.lang.NullPointerException
       }      
   } 
+  
+  /**
+   * Simple join function
+   */
+  def merge(joiny :Revision, branch: Branch): Unit = {
+    val latestWrite = getLatestVersionId(joiny.current)
+    
+    if(latestWrite == branch.currentVersion)
+      this.setItem(versions.get(branch.currentVersion).get)//do we need to check?
+  }
+  
+  /**
+   * Releases branch
+   */
+  def Release(branch: Branch): Unit = {
+    this.versions.remove(branch.currentVersion)
+  }
+  
+  /**
+   * Collapses branch
+   */
+  
+  def Collapse(branch: Branch): Unit = {
+    if (!this.versions.contains(branch.currentVersion))
+      setItem(versions.get(branch.currentVersion).get)
+    this.versions.remove(branch.currentVersion)
+  }
+  
 }

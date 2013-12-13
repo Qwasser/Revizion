@@ -21,6 +21,11 @@ abstract class Branch {
     written = obj :: written
   } 
   
+  def getWritten(): List[Versioned] = {
+    val s = written
+    s
+  } 
+  
   /**
    * amount of branches pointing on this Branch
    */
@@ -36,7 +41,7 @@ abstract class Branch {
    */
   def release: Unit = {
     if (refCount.decrementAndGet() == 0){
-      written.foreach(_.releaseCurrent)
+      written.foreach(_.releaseCurrent(this))
     }
     
     this match {
@@ -44,7 +49,7 @@ abstract class Branch {
     }	  
   }
   
-  def collapse(main: Revision): Unit = {
+  def collapse(main : Revision): Unit = {
        
   }
 }

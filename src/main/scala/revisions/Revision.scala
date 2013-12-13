@@ -49,13 +49,46 @@ class Revision(root: Branch) {
     newRev
   }
   
-  def join(joiny: Revision): Unit = {  
+  /**
+   * allows to continue current task with new One
+   */
+  def continueWith(task: ()=> Unit): Unit = {
+    val f: Future[Unit] = future {
+      Revision.currentRevision.withValue(this){
+        task.apply
+      }
+    }
+    
+    this.task.completeWith(f)
+  }
+  
+  /**
+   * one revision falls into another after both complite their task
+   */
+  def tailJoin(joiny: Revision): Unit = {  
     this.task.future onComplete {
       case Failure(e) => throw e
-      case Success(a) => this.task.completeWith(joiny.task.future)
+      case Success(a) => {
+        this.task.completeWith(joiny.task.future).completeWith{
+          future{
+            recursiveMerge(joiny, joiny.current)
+            joiny.current.release
+            current.collapse(this)
+          } 
+        }       
+      }
     }
   }
   
+  private def recursiveMerge(joiny: Revision, branch: Branch): Unit = {
+    if (branch.currentVersion != joiny.current.currentVersion) {
+      branch.getWritten().foreach(_.merge(joiny, branch))
+      branch match {
+        case ParentedBranch(parent) => recursiveMerge(joiny, parent)
+      	case rootBranch => throw new java.lang.NullPointerException
+      }
+    }
+  }
 
 }
 
