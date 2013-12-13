@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Versioned - revisions.Versioned</title>
-          <meta name="description" content="Versioned - revisions.Versioned" />
-          <meta name="keywords" content="Versioned revisions.Versioned" />
+          <title>VersionedInt - versionedObjects.VersionedInt</title>
+          <meta name="description" content="VersionedInt - versionedObjects.VersionedInt" />
+          <meta name="keywords" content="VersionedInt versionedObjects.VersionedInt" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../index.html';
-            var hash = 'revisions.Versioned';
+            var hash = 'versionedObjects.VersionedInt';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -24,27 +24,24 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img src="../lib/trait_big.png" />
-        <p id="owner"><a href="package.html" class="extype" name="revisions">revisions</a></p>
-        <h1>Versioned</h1>
+        <img src="../lib/class_big.png" />
+        <p id="owner"><a href="package.html" class="extype" name="versionedObjects">versionedObjects</a></p>
+        <h1>VersionedInt</h1>
       </div>
 
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">Versioned</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+        <span class="name">VersionedInt</span><span class="result"> extends <a href="../revisions/Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div><div class="toggleContainer block">
-          <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="../versionedObjects/VersionedInt.html" class="extype" name="versionedObjects.VersionedInt">VersionedInt</a></div>
+          <div class="superTypes hiddenContent"><a href="../revisions/Versioned.html" class="extype" name="revisions.Versioned">Versioned</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -62,7 +59,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="revisions.Versioned"><span>Versioned</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="versionedObjects.VersionedInt"><span>VersionedInt</span></li><li class="in" name="revisions.Versioned"><span>Versioned</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -80,7 +77,23 @@
 
       <div id="template">
         <div id="allMembers">
-        
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="versionedObjects.VersionedInt#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;():versionedObjects.VersionedInt"></a>
+      <a id="&lt;init&gt;:VersionedInt"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">VersionedInt</span><span class="params">()</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
 
         
 
@@ -308,7 +321,7 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="revisions.Versioned#releaseCurrent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="revisions.Versioned#releaseCurrent" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="releaseCurrent:Unit"></a>
       <a id="releaseCurrent:Unit"></a>
       <h4 class="signature">
@@ -320,7 +333,7 @@
         <span class="name">releaseCurrent</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
-      <p class="shortcomment cmt">Releases current version</p>
+      <p class="shortcomment cmt">Releases current version</p><div class="fullcomment"><div class="comment cmt"><p>Releases current version</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../revisions/Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -413,7 +426,9 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="revisions.Versioned">
+              <h3>Inherited from <a href="../revisions/Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

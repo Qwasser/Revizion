@@ -12,7 +12,14 @@ abstract class Branch {
    * List of written versioned objects (if object was not written
    * we do not need to merge it)
    */
-  var written: List[Versioned] = List()
+  private var written: List[Versioned] = List()
+  
+  /**
+   * Lets branch know that versioned object is written
+   */
+  def write(obj: Versioned): Unit = {
+    written = obj :: written
+  } 
   
   /**
    * amount of branches pointing on this Branch
@@ -34,8 +41,11 @@ abstract class Branch {
     
     this match {
       case ParentedBranch(parent) => parent.release 
-    }
-		  
+    }	  
+  }
+  
+  def collapse(main: Revision): Unit = {
+       
   }
 }
 
@@ -57,7 +67,8 @@ case class ParentedBranch(parent: Branch) extends Branch {
  * Holds version count 
  */
 object Branch{
-  val versionCount: AtomicInteger = new AtomicInteger(0)
+  def apply(): Branch = new RootBranch
+  private val versionCount: AtomicInteger = new AtomicInteger(0)
 }
 
 

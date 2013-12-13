@@ -18,3 +18,5 @@ doc
 compile
 compile -deprication
 doc
+eclipse
+doc

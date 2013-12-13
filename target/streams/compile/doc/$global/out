@@ -1,15 +1,16 @@
-[0m[[0minfo[0m] [0mMain Scala API documentation to C:\Users\Admin\Documents\GitHub\Revizion\target\scala-2.10\api...[0m
+[0m[[0minfo[0m] [0mMain Scala API documentation to C:\Users\Users\Documents\GitHub\Revizion\target\scala-2.10\api...[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.2[0m
 [0m[[0mdebug[0m] [0mCalling Scaladoc with arguments:[0m
 [0m[[0mdebug[0m] [0m	-d[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Admin\Documents\GitHub\Revizion\target\scala-2.10\api[0m
+[0m[[0mdebug[0m] [0m	C:\Users\Users\Documents\GitHub\Revizion\target\scala-2.10\api[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
-[0m[[0mdebug[0m] [0m	C:\Program Files\Java\jre7\lib\resources.jar;C:\Program Files\Java\jre7\lib\rt.jar;C:\Program Files\Java\jre7\lib\sunrsasign.jar;C:\Program Files\Java\jre7\lib\jsse.jar;C:\Program Files\Java\jre7\lib\jce.jar;C:\Program Files\Java\jre7\lib\charsets.jar;C:\Program Files\Java\jre7\lib\jfr.jar;C:\Program Files\Java\jre7\classes;C:\Users\Admin\.sbt\boot\scala-2.10.2\lib\scala-library.jar[0m
+[0m[[0mdebug[0m] [0m	C:\Users\Users\algs4\java\lib\resources.jar;C:\Users\Users\algs4\java\lib\rt.jar;C:\Users\Users\algs4\java\lib\sunrsasign.jar;C:\Users\Users\algs4\java\lib\jsse.jar;C:\Users\Users\algs4\java\lib\jce.jar;C:\Users\Users\algs4\java\lib\charsets.jar;C:\Users\Users\algs4\java\lib\jfr.jar;C:\Users\Users\algs4\java\classes;C:\Users\Users\.sbt\boot\scala-2.10.2\lib\scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
-[0m[[0mdebug[0m] [0m	dummy_16736bd9[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\revisions\Branch.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\revisions\Revision.scala[0m
-[0m[[0mdebug[0m] [0m	C:\Users\Admin\Documents\GitHub\Revizion\src\main\scala\revisions\Versioned.scala[0m
+[0m[[0mdebug[0m] [0m	dummy_28398148[0m
+[0m[[0mdebug[0m] [0m	C:\Users\Users\Documents\GitHub\Revizion\src\main\scala\revisions\Branch.scala[0m
+[0m[[0mdebug[0m] [0m	C:\Users\Users\Documents\GitHub\Revizion\src\main\scala\revisions\Revision.scala[0m
+[0m[[0mdebug[0m] [0m	C:\Users\Users\Documents\GitHub\Revizion\src\main\scala\revisions\Versioned.scala[0m
+[0m[[0mdebug[0m] [0m	C:\Users\Users\Documents\GitHub\Revizion\src\main\scala\versionedObjects\VersionedInt.scala[0m
 [0m[[33mwarn[0m] [0mthere were 1 deprecation warning(s); re-run with -deprecation for details[0m
 [0m[[33mwarn[0m] [0mone warning found[0m
 [0m[[0minfo[0m] [0mMain Scala API documentation successful.[0m
