@@ -50,7 +50,29 @@ abstract class Branch {
   }
   
   def collapse(main : Revision): Unit = {
-       
+    collapseHelper(main, this)  
+  }
+  
+  private def collapseHelper(rev: Revision, branch: Branch):Unit = {
+    if (branch.getParent.currentVersion != rev.root.currentVersion && branch.getParent.refCount == 1){
+      branch.getParent.written.foreach(_.collapse(rev, branch.getParent))
+      branch.getParent.setParent(branch.getParent.getParent)
+      collapseHelper(rev, branch)
+    }
+  }
+  
+  def getParent: Branch = {
+    this match{
+      case ParentedBranch(parent) => parent
+      case RootBranch() => throw new java.lang.NullPointerException
+    }
+  }
+  
+  def setParent(parent: Branch):Unit = {
+    this match{
+      case ParentedBranch(p) => ParentedBranch(p).parent = parent
+      case RootBranch() => throw new java.lang.IllegalArgumentException
+    }
   }
 }
 
@@ -62,7 +84,7 @@ case class RootBranch extends Branch
 /**
  * Branch with parent
  */
-case class ParentedBranch(parent: Branch) extends Branch {
+case class ParentedBranch(var parent: Branch) extends Branch {
   
   parent.refCount.incrementAndGet()
 }

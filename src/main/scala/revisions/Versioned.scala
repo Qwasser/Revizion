@@ -9,7 +9,7 @@ trait Versioned {
    */
   def releaseCurrent(branch: Branch): Unit 
   
-  def collapse(branch: Branch): Unit
+  def collapse(rev: Revision, branch: Branch): Unit
 	
   def merge(joiny :Revision, branch: Branch): Unit
   
@@ -87,7 +87,7 @@ trait VersionedItem[T] extends Versioned {
    */
   
   def Collapse(branch: Branch): Unit = {
-    if (!this.versions.contains(branch.currentVersion))
+    if (!this.versions.contains(rev.current.currentVersion))
       setItem(versions.get(branch.currentVersion).get)
     this.versions.remove(branch.currentVersion)
   }

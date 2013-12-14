@@ -11,7 +11,7 @@ import scala.util.control.NonFatal
  * Class, that handles current revision
  * @param root Branch is root branch of current revision
  */
-class Revision(root: Branch) {
+class Revision(val root: Branch) {
   
   /**
    * latest branch of current revision
