@@ -42,12 +42,11 @@ abstract class Branch {
   def release: Unit = {
     if (refCount.decrementAndGet() == 0){
       written.foreach(_.release(this))
-    }
-    
-    this match {
-      case ParentedBranch(parent) => parent.release 
-      case RootBranch() => 
-    }	  
+      this match {
+	      case ParentedBranch(parent) => parent.release 
+	      case RootBranch() => 
+      }	  
+    } 
   }
   
   def collapse(main : Revision): Unit = {

@@ -27,6 +27,6 @@ class BasicSuite extends FunSuite{
     val r1: Revision = Revision.mainRevision.fork(task)
     assert(testVer.getItem == testVal1)
     Revision.mainRevision.hardJoin(r1)
-    //assert(testVer.getItem == testVal2)
+    assert(testVer.getItem == testVal2)
   }
 }

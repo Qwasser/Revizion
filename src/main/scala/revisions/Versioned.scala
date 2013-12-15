@@ -21,7 +21,7 @@ class VersionedItem[T] extends Versioned {
   /**
    * Map of item versions
    */
-  private val versions: HashMap[Int, T] = new HashMap()
+  val versions: HashMap[Int, T] = new HashMap()
   
   /**
    * Evaluates current revision in threadlocal context

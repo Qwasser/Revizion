@@ -36,8 +36,8 @@ class Revision(val root: Branch) {
   def fork(task: ()=> Unit): Revision = {
     
     //make new branches to track versioned object modifications
-    this.current = Branch(root)
-    val newRev = Revision(root, Branch(root))
+    this.current = Branch(current)
+    val newRev = Revision(current, Branch(current))
     
     val f: Future[Unit] = future {
       Revision.currentRevision.withValue(newRev){
@@ -90,7 +90,7 @@ class Revision(val root: Branch) {
   } 
   
   private def recursiveMerge(joiny: Revision, branch: Branch): Unit = {
-    if (branch.currentVersion != joiny.current.currentVersion) {
+    if (branch.currentVersion != joiny.root.currentVersion) {
       branch.getWritten().foreach(_.merge(this, joiny, branch))
       branch match {
         case ParentedBranch(parent) => recursiveMerge(joiny, parent)
