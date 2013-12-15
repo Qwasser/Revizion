@@ -3,6 +3,7 @@ package revisions
 import scala.util.DynamicVariable
 import scala.concurrent.Promise
 import scala.concurrent._
+import scala.concurrent.duration._
 import ExecutionContext.Implicits.global
 import scala.util._
 import scala.util.control.NonFatal
@@ -27,7 +28,6 @@ class Revision(val root: Branch) {
    * revision task
    */
   val task: Promise[Unit] = Promise[Unit]
-  
   /**
    * creates new revision and runs task in it
    * as future
@@ -80,9 +80,18 @@ class Revision(val root: Branch) {
     }
   }
   
+  def hardJoin(joiny: Revision): Unit = {
+    //Await.result(this.task.future, 1.seconds)
+    Await.result(joiny.task.future, 2.seconds)
+    recursiveMerge(joiny, joiny.current)
+    joiny.current.release
+    current.collapse(this)
+    
+  } 
+  
   private def recursiveMerge(joiny: Revision, branch: Branch): Unit = {
     if (branch.currentVersion != joiny.current.currentVersion) {
-      branch.getWritten().foreach(_.merge(joiny, branch))
+      branch.getWritten().foreach(_.merge(this, joiny, branch))
       branch match {
         case ParentedBranch(parent) => recursiveMerge(joiny, parent)
       	case rootBranch => throw new java.lang.NullPointerException

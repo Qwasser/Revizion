@@ -7,16 +7,16 @@ trait Versioned {
    * Releases current version
    * 
    */
-  def releaseCurrent(branch: Branch): Unit 
+  def release(branch: Branch): Unit 
   
   def collapse(rev: Revision, branch: Branch): Unit
 	
-  def merge(joiny :Revision, branch: Branch): Unit
+  def merge(rev: Revision, joiny :Revision, branch: Branch): Unit
   
   
 }
 
-trait VersionedItem[T] extends Versioned {
+class VersionedItem[T] extends Versioned {
   
   /**
    * Map of item versions
@@ -30,7 +30,7 @@ trait VersionedItem[T] extends Versioned {
   /**
    * Sets new value to item and additionally creates it's new version
    */
-  def setItem(item: T): Unit = {
+  def setItem(item: T, rev: Revision): Unit = {
 
     // We want to notify branch, that item was written and new version of it was created
     // Later we will join versions using this knowledge
@@ -39,16 +39,24 @@ trait VersionedItem[T] extends Versioned {
     versions.update(rev.getVersion, item) //creating new version	
   }
   
+  def setItem(item: T): Unit ={
+    setItem(item, this.rev)
+  }
+  
   /**
    * Gets item in the context of current version
    */
   
-  def getItem(): T = {
+  def getItem(rev: Revision): T = {
     val v: Int = this.getLatestVersionId(rev.current) 
     versions.get(v) match {
       case Some(item) => item
       case None => throw new java.lang.NullPointerException 
     }
+  }
+  
+  def getItem(): T = {
+    this.getItem(this.rev)
   }
   
   
@@ -68,17 +76,17 @@ trait VersionedItem[T] extends Versioned {
   /**
    * Simple join function
    */
-  def merge(joiny :Revision, branch: Branch): Unit = {
+  def merge(rev: Revision, joiny :Revision, branch: Branch): Unit = {
     val latestWrite = getLatestVersionId(joiny.current)
     
     if(latestWrite == branch.currentVersion)
-      this.setItem(versions.get(branch.currentVersion).get)//do we need to check?
+      this.setItem(versions.get(branch.currentVersion).get, rev)//do we need to check?
   }
   
   /**
    * Releases branch
    */
-  def Release(branch: Branch): Unit = {
+  def release(branch: Branch): Unit = {
     this.versions.remove(branch.currentVersion)
   }
   
@@ -86,9 +94,9 @@ trait VersionedItem[T] extends Versioned {
    * Collapses branch
    */
   
-  def Collapse(branch: Branch): Unit = {
+  def collapse(rev: Revision, branch: Branch): Unit = {
     if (!this.versions.contains(rev.current.currentVersion))
-      setItem(versions.get(branch.currentVersion).get)
+      setItem(versions.get(branch.currentVersion).get, rev)
     this.versions.remove(branch.currentVersion)
   }
   
