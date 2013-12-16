@@ -29,7 +29,7 @@ abstract class Branch {
   /**
    * amount of branches pointing on this Branch
    */
-  val refCount: AtomicInteger = new AtomicInteger(0)		
+  val refCount: AtomicInteger = new AtomicInteger(1)		
   
   /**
    * Current version id
@@ -41,6 +41,7 @@ abstract class Branch {
    */
   def release: Unit = {
     if (refCount.decrementAndGet() == 0){
+      //println(this.currentVersion)
       written.foreach(_.release(this))
       this match {
 	      case ParentedBranch(parent) => parent.release 

@@ -27,7 +27,9 @@ class Revision(val root: Branch) {
   /**
    * revision task
    */
-  val task: Promise[Unit] = Promise[Unit]
+  private var task: Promise[Unit] = Promise[Unit]
+  
+  task.completeWith(future {})
   /**
    * creates new revision and runs task in it
    * as future
@@ -39,12 +41,13 @@ class Revision(val root: Branch) {
     this.current = Branch(current)
     val newRev = Revision(current, Branch(current))
     
-    val f: Future[Unit] = future {
+    val f: Future[Unit] = this.task.future.flatMap(u => future {
       Revision.currentRevision.withValue(newRev){
         task.apply
       }
-    }
+    })
     
+    newRev.task = Promise[Unit]
     newRev.task.completeWith(f)
     newRev
   }
@@ -66,18 +69,19 @@ class Revision(val root: Branch) {
    * one revision falls into another after both complite their task
    */
   def tailJoin(joiny: Revision): Unit = {  
-    this.task.future onComplete {
-      case Failure(e) => throw e
-      case Success(a) => {
-        this.task.completeWith(joiny.task.future).completeWith{
-          future{
+    
+     val f =  this.task.future.flatMap(u =>
+       joiny.task.future).flatMap(u => 
+         future{
             recursiveMerge(joiny, joiny.current)
+            //println(joiny.current.currentVersion)
             joiny.current.release
+            
             current.collapse(this)
-          } 
-        }       
-      }
-    }
+         })
+     
+     this.task = Promise[Unit]
+     this.task.completeWith(f)
   }
   
   def hardJoin(joiny: Revision): Unit = {

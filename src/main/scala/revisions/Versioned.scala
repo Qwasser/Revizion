@@ -1,6 +1,7 @@
 package revisions 
 
 import scala.collection.mutable.HashMap
+import scala.collection.concurrent.TrieMap
 
 trait Versioned {
   /**
@@ -21,7 +22,7 @@ class VersionedItem[T] extends Versioned {
   /**
    * Map of item versions
    */
-  val versions: HashMap[Int, T] = new HashMap()
+  val versions: TrieMap[Int, T] = new TrieMap()
   
   /**
    * Evaluates current revision in threadlocal context
