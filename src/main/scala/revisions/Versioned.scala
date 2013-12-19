@@ -2,6 +2,22 @@ package revisions
 
 import scala.collection.mutable.HashMap
 import scala.collection.concurrent.TrieMap
+import scala.concurrent.duration._
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+
+trait SpecialMerge[T]{
+    type self <: VersionedObj[T]
+    
+	def mergeFunction(joiner: T, joiny: T): T
+	
+}
+
+trait SimpleMerge[T] extends SpecialMerge[T]{
+  override def mergeFunction(joiner: T, joiny: T): T = {
+    joiny
+  }
+}
 
 trait Versioned {
   /**
@@ -16,8 +32,9 @@ trait Versioned {
   
   
 }
+class VersionedItem[T] extends VersionedObj[T] with SimpleMerge[T] 
 
-class VersionedItem[T] extends Versioned {
+abstract class VersionedObj[T] extends Versioned {
   
   /**
    * Map of item versions
@@ -39,6 +56,11 @@ class VersionedItem[T] extends Versioned {
       rev.current.write(this)
     versions.update(rev.getVersion, item) //creating new version	
   }
+  
+  /**
+   * Merge function
+   */
+  def mergeFunction(joiner: T, joiny: T): T
   
   def setItem(item: T): Unit ={
     setItem(item, this.rev)
@@ -79,9 +101,9 @@ class VersionedItem[T] extends Versioned {
    */
   def merge(rev: Revision, joiny :Revision, branch: Branch): Unit = {
     val latestWrite = getLatestVersionId(joiny.current)
-    
+    val mergedItem = mergeFunction(getItem(rev), versions.get(branch.currentVersion).get)
     if(latestWrite == branch.currentVersion)
-      this.setItem(versions.get(branch.currentVersion).get, rev)//do we need to check?
+      this.setItem(mergedItem, rev)//do we need to check?
   }
   
   /**

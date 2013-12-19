@@ -3,6 +3,9 @@ package revisions
 import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
+import scala.concurrent._
+import scala.concurrent.duration._
+import ExecutionContext.Implicits.global
 
 
 @RunWith(classOf[JUnitRunner])
@@ -39,11 +42,13 @@ class BasicSuite extends FunSuite{
     
     def task1():Unit = {
       testVer.setItem(testVal2)
+      //println ("task1")
       assert(testVer.getItem == testVal2)
       }
     
      def task2():Unit = {
       assert(testVer.getItem == testVal2)
+      //println ("task2")
       testVer.setItem(testVal3)
       assert(testVer.getItem == testVal3)
       }
@@ -53,6 +58,16 @@ class BasicSuite extends FunSuite{
     
     assert(testVer.getItem == testVal1)
     
+    val p = Promise[Unit]
+    p.completeWith{
+      future{
+        blocking{
+    	  Thread.sleep(1000)
+        }
+      }
+    }
+    Await.result(p.future, 2 seconds)
+    //println ("wtf")
     r1.tailJoin(r2)
     Revision.mainRevision.hardJoin(r1)	
     assert(testVer.getItem == testVal3)

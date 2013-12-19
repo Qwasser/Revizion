@@ -61,8 +61,10 @@ class Revision(val root: Branch) {
         task.apply
       }
     }
-    
-    this.task.completeWith(f)
+ 
+    val newF = this.task.future.flatMap(u => f)
+    this.task = Promise[Unit]
+    this.task.completeWith(newF)
   }
   
   /**
@@ -86,11 +88,10 @@ class Revision(val root: Branch) {
   
   def hardJoin(joiny: Revision): Unit = {
     //Await.result(this.task.future, 1.seconds)
-    Await.result(joiny.task.future, 2.seconds)
+    Await.result(joiny.task.future, 5.seconds)
     recursiveMerge(joiny, joiny.current)
     joiny.current.release
-    current.collapse(this)
-    
+    current.collapse(this)   
   } 
   
   private def recursiveMerge(joiny: Revision, branch: Branch): Unit = {
