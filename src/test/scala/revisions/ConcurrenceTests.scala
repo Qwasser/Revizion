@@ -25,17 +25,20 @@ class ConcurrenceTests extends FunSuite{
     def task1():Unit = {
       testVer.setItem(v2)
       Thread.sleep(v1)
-      }
+    }
     
-     def task2():Unit = {
+    def task2():Unit = {
       testVer.setItem(v3)
       Thread.sleep(v2)
-      }
+    }
     
     val r1: Revision = Revision.mainRevision.fork(task1)
     val r2: Revision = r1.fork(task2)
+    
     Thread.sleep(v3)
+    
     r1.tailJoin(r2)
+    
     Revision.mainRevision.hardJoin(r1)	
     testVer.getItem(Revision.mainRevision)
   }

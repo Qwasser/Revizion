@@ -9,12 +9,12 @@ import ExecutionContext.Implicits.global
 trait SpecialMerge[T]{
     type self <: VersionedObj[T]
     
-	def mergeFunction(joiner: T, joiny: T): T
+	def mergeFunction(joiner: T, joiny: T, root: T): T
 	
 }
 
 trait SimpleMerge[T] extends SpecialMerge[T]{
-  override def mergeFunction(joiner: T, joiny: T): T = {
+  override def mergeFunction(joiner: T, joiny: T, root: T): T = {
     joiny
   }
 }
@@ -60,7 +60,7 @@ abstract class VersionedObj[T] extends Versioned {
   /**
    * Merge function
    */
-  def mergeFunction(joiner: T, joiny: T): T
+  def mergeFunction(joiner: T, joiny: T, root: T): T
   
   def setItem(item: T): Unit ={
     setItem(item, this.rev)
@@ -97,11 +97,54 @@ abstract class VersionedObj[T] extends Versioned {
   } 
   
   /**
+   * Finds root element of two branches
+   */
+  def rootElem(first: Branch, second: Branch): T = {
+    if (first == second) {
+      this.versions.get(this.getLatestVersionId(first)).get
+    } else {
+      val bSet = rootSet(Set(), first)
+      val commonBranch = findCommon(bSet, second)
+      this.versions.get(this.getLatestVersionId(commonBranch)).get
+    }
+    
+  }
+  
+  /**
+   * Gets all parents in Set
+   */
+  private def rootSet(bSet: Set[Branch], curr: Branch): Set[Branch] = {
+    if (curr.hasParent) {
+      rootSet(bSet + curr, curr.getParent)
+    } else {
+      bSet + curr
+    }
+  }
+  
+  /**
+   * Finds common parent, if it in set
+   */
+  private def findCommon(bSet: Set[Branch], curr: Branch): Branch =
+  {
+    if (bSet.contains(curr)) {
+      curr
+    } else {
+      if (curr.hasParent) {
+        findCommon(bSet, curr.getParent)
+      }
+      else {
+        throw new java.lang.IllegalArgumentException
+      }
+    }
+  }
+  
+  /**
    * Simple join function
    */
   def merge(rev: Revision, joiny :Revision, branch: Branch): Unit = {
     val latestWrite = getLatestVersionId(joiny.current)
-    val mergedItem = mergeFunction(getItem(rev), versions.get(branch.currentVersion).get)
+    val rootItem = rootElem(rev.current, joiny.current)
+    val mergedItem = mergeFunction(getItem(rev), versions.get(branch.currentVersion).get, rootItem) //todo: root
     if(latestWrite == branch.currentVersion)
       this.setItem(mergedItem, rev)//do we need to check?
   }

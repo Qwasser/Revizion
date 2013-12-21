@@ -58,15 +58,7 @@ class BasicSuite extends FunSuite{
     
     assert(testVer.getItem == testVal1)
     
-    val p = Promise[Unit]
-    p.completeWith{
-      future{
-        blocking{
-    	  Thread.sleep(1000)
-        }
-      }
-    }
-    Await.result(p.future, 2 seconds)
+
     //println ("wtf")
     r1.tailJoin(r2)
     Revision.mainRevision.hardJoin(r1)	

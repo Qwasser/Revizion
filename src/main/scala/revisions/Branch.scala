@@ -69,6 +69,13 @@ abstract class Branch {
     }
   }
   
+  def hasParent: Boolean = {
+    this match{
+      case ParentedBranch(parent) => true
+      case RootBranch() => false
+    }
+  }
+  
   def setParent(parent: Branch):Unit = {
     this match{
       case ParentedBranch(p) => ParentedBranch(p).parent = parent
