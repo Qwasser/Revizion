@@ -6,6 +6,7 @@ import scala.collection.mutable.Queue
 import scala.xml.Null
 
 trait StackDAO[T] {
+  
   this: VersionedStack[T] =>
   
   def push(item: T) : Unit = {
@@ -76,4 +77,6 @@ trait StackMerge[T] extends SpecialMerge[Stack[T]] {
     
 }
 
-abstract class VersionedStack[T] extends VersionedObj[Stack[T]] with  StackDAO[T]
+abstract class VersionedStack[T] extends VersionedObj[Stack[T]] with  StackDAO[T] {
+  this.setItem(new Stack[T])
+}
