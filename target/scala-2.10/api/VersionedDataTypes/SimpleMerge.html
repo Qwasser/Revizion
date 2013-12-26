@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>VersionedItem - revisions.VersionedItem</title>
-          <meta name="description" content="VersionedItem - revisions.VersionedItem" />
-          <meta name="keywords" content="VersionedItem revisions.VersionedItem" />
+          <title>SimpleMerge - VersionedDataTypes.SimpleMerge</title>
+          <meta name="description" content="SimpleMerge - VersionedDataTypes.SimpleMerge" />
+          <meta name="keywords" content="SimpleMerge VersionedDataTypes.SimpleMerge" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -12,7 +12,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../index.html';
-            var hash = 'revisions.VersionedItem';
+            var hash = 'VersionedDataTypes.SimpleMerge';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -25,8 +25,8 @@
         <body class="type">
       <div id="definition">
         <img src="../lib/trait_big.png" />
-        <p id="owner"><a href="package.html" class="extype" name="revisions">revisions</a></p>
-        <h1>VersionedItem</h1>
+        <p id="owner"><a href="package.html" class="extype" name="VersionedDataTypes">VersionedDataTypes</a></p>
+        <h1>SimpleMerge</h1>
       </div>
 
       <h4 id="signature" class="signature">
@@ -35,13 +35,17 @@
         <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">VersionedItem</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></span>
+        <span class="name">SimpleMerge</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../revisions/SpecialMerge.html" class="extype" name="revisions.SpecialMerge">SpecialMerge</a>[<span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span>]</span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Simple merge, that overrides current revision with child
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><a href="../revisions/SpecialMerge.html" class="extype" name="revisions.SpecialMerge">SpecialMerge</a>[<span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span>], <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="VersionedItem.html" class="extype" name="VersionedDataTypes.VersionedItem">VersionedItem</a></div>
         </div></div>
         
 
@@ -59,7 +63,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="revisions.VersionedItem"><span>VersionedItem</span></li><li class="in" name="revisions.Versioned"><span>Versioned</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="VersionedDataTypes.SimpleMerge"><span>SimpleMerge</span></li><li class="in" name="revisions.SpecialMerge"><span>SpecialMerge</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -79,7 +83,23 @@
         <div id="allMembers">
         
 
-        
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="revisions.SpecialMerge.self" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="self&lt;:revisions.VersionedObj[T]"></a>
+      <a id="self:self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">self</span><span class="result"> &lt;: <a href="../revisions/VersionedObj.html" class="extype" name="revisions.VersionedObj">VersionedObj</a>[<span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../revisions/SpecialMerge.html" class="extype" name="revisions.SpecialMerge">SpecialMerge</a></dd></dl></div>
+    </li></ol>
+            </div>
 
         
 
@@ -182,19 +202,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="revisions.Versioned#collapse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="collapse:Unit"></a>
-      <a id="collapse:Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">collapse</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -253,20 +260,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="revisions.VersionedItem#getItem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="getItem():T"></a>
-      <a id="getItem():T"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">getItem</span><span class="params">()</span><span class="result">: <span class="extype" name="revisions.VersionedItem.T">T</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Gets item in the context of current version
-</p>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -293,6 +286,19 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="VersionedDataTypes.SimpleMerge#mergeFunction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mergeFunction(joiner:T,joiny:T,root:T):T"></a>
+      <a id="mergeFunction(T,T,T):T"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mergeFunction</span><span class="params">(<span name="joiner">joiner: <span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span></span>, <span name="joiny">joiny: <span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span></span>, <span name="root">root: <span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span></span>)</span><span class="result">: <span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="VersionedDataTypes.SimpleMerge">SimpleMerge</a> → <a href="../revisions/SpecialMerge.html" class="extype" name="revisions.SpecialMerge">SpecialMerge</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -332,47 +338,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="revisions.Versioned#releaseCurrent" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="releaseCurrent:Unit"></a>
-      <a id="releaseCurrent:Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">releaseCurrent</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Releases current version</p><div class="fullcomment"><div class="comment cmt"><p>Releases current version</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></dd></dl></div>
-    </li><li name="revisions.VersionedItem#rev" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="rev:revisions.Revision"></a>
-      <a id="rev:Revision"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">rev</span><span class="result">: <a href="Revision.html" class="extype" name="revisions.Revision">Revision</a></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Evaluates current revision in threadlocal context
-</p>
-    </li><li name="revisions.VersionedItem#setItem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="setItem(item:T):Unit"></a>
-      <a id="setItem(T):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">setItem</span><span class="params">(<span name="item">item: <span class="extype" name="revisions.VersionedItem.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Sets new value to item and additionally creates it's new version
-</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -465,8 +430,8 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="revisions.Versioned">
-              <h3>Inherited from <a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></h3>
+        <div class="parent" name="revisions.SpecialMerge">
+              <h3>Inherited from <a href="../revisions/SpecialMerge.html" class="extype" name="revisions.SpecialMerge">SpecialMerge</a>[<span class="extype" name="VersionedDataTypes.SimpleMerge.T">T</span>]</h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">

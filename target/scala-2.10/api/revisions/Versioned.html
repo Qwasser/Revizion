@@ -39,12 +39,13 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Interface between revisions and versioned objects
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div><div class="toggleContainer block">
           <span class="toggle">Known Subclasses</span>
-          <div class="subClasses hiddenContent"><a href="../versionedObjects/VersionedInt.html" class="extype" name="versionedObjects.VersionedInt">VersionedInt</a>, <a href="VersionedItem.html" class="extype" name="revisions.VersionedItem">VersionedItem</a></div>
+          <div class="subClasses hiddenContent"><a href="../VersionedDataTypes/AverageInt.html" class="extype" name="VersionedDataTypes.AverageInt">AverageInt</a>, <a href="../VersionedDataTypes/VersionedItem.html" class="extype" name="VersionedDataTypes.VersionedItem">VersionedItem</a>, <a href="VersionedObj.html" class="extype" name="revisions.VersionedObj">VersionedObj</a>, <a href="../VersionedColls/VersionedStack.html" class="extype" name="VersionedColls.VersionedStack">VersionedStack</a></div>
         </div></div>
         
 
@@ -84,10 +85,55 @@
 
         
 
-        
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="revisions.Versioned#collapse" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="collapse(rev:revisions.Revision,branch:revisions.Branch):Unit"></a>
+      <a id="collapse(Revision,Branch):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">collapse</span><span class="params">(<span name="rev">rev: <a href="Revision.html" class="extype" name="revisions.Revision">Revision</a></span>, <span name="branch">branch: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Collapses linear segment of branches into single one
+</p>
+    </li><li name="revisions.Versioned#merge" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="merge(rev:revisions.Revision,joiny:revisions.Revision,branch:revisions.Branch):Unit"></a>
+      <a id="merge(Revision,Revision,Branch):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">merge</span><span class="params">(<span name="rev">rev: <a href="Revision.html" class="extype" name="revisions.Revision">Revision</a></span>, <span name="joiny">joiny: <a href="Revision.html" class="extype" name="revisions.Revision">Revision</a></span>, <span name="branch">branch: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Merges two revisions
+</p>
+    </li><li name="revisions.Versioned#release" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="release(branch:revisions.Branch):Unit"></a>
+      <a id="release(Branch):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">release</span><span class="params">(<span name="branch">branch: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Releases current version.</p><div class="fullcomment"><div class="comment cmt"><p>Releases current version. Used for garbage collection
+</p></div></div>
+    </li></ol>
+            </div>
 
         <div id="values" class="values members">
-              <h3>Value Members</h3>
+              <h3>Concrete Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:AnyRef):Boolean"></a>
       <a id="!=(AnyRef):Boolean"></a>
@@ -185,19 +231,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="revisions.Versioned#collapse" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="collapse:Unit"></a>
-      <a id="collapse:Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">collapse</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -321,19 +354,6 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="revisions.Versioned#releaseCurrent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="releaseCurrent:Unit"></a>
-      <a id="releaseCurrent:Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">releaseCurrent</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      <p class="shortcomment cmt">Releases current version</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

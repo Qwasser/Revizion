@@ -5,6 +5,9 @@ import revisions.VersionedObj
 
 class AverageInt extends VersionedObj[Int] with AverageMerge
 
+/**
+ * Merge with average value
+ */
 trait AverageMerge extends SpecialMerge[Int] {
     override def mergeFunction(joiner: Int, joiny: Int, root: Int): Int = {
       //println ("Lets count")

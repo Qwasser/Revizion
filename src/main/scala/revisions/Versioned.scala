@@ -6,34 +6,43 @@ import scala.concurrent.duration._
 import scala.concurrent._
 import ExecutionContext.Implicits.global
 
+
+/**
+ * Trait, that defines merge function
+ * Must be inherited and mixed in versioned object to define special merge function/
+ */
 trait SpecialMerge[T]{
-    type self <: VersionedObj[T]
-    
-	def mergeFunction(joiner: T, joiny: T, root: T): T
-	
+    type self <: VersionedObj[T]  
+	def mergeFunction(joiner: T, joiny: T, root: T): T	
 }
 
-trait SimpleMerge[T] extends SpecialMerge[T]{
-  override def mergeFunction(joiner: T, joiny: T, root: T): T = {
-    joiny
-  }
-}
 
+/**
+ * Interface between revisions and versioned objects
+ */
 trait Versioned {
+  
   /**
-   * Releases current version
-   * 
+   * Releases current version. Used for garbage collection
    */
   def release(branch: Branch): Unit 
-  
+ 
+  /**
+   * Collapses linear segment of branches into single one
+   */
   def collapse(rev: Revision, branch: Branch): Unit
-	
+  
+ /**
+  * Merges two revisions
+  */
   def merge(rev: Revision, joiny :Revision, branch: Branch): Unit
   
   
 }
-class VersionedItem[T] extends VersionedObj[T] with SimpleMerge[T] 
 
+/**
+ * Template for versioned object. Must be inherited by user classes. 
+ */
 abstract class VersionedObj[T] extends Versioned {
   
   /**
@@ -45,6 +54,7 @@ abstract class VersionedObj[T] extends Versioned {
    * Evaluates current revision in threadlocal context
    */
   def rev: Revision = Revision.currentRevision.value
+ 
   /**
    * Sets new value to item and additionally creates it's new version
    */
@@ -62,14 +72,17 @@ abstract class VersionedObj[T] extends Versioned {
    */
   def mergeFunction(joiner: T, joiny: T, root: T): T
   
+  /**
+   * Sets item to current revision
+   */
   def setItem(item: T): Unit ={
     setItem(item, this.rev)
   }
   
-  /**
-   * Gets item in the context of current version
+ 
+   /**
+   * Gets item in the context of specified version
    */
-  
   def getItem(rev: Revision): T = {
     val v: Int = this.getLatestVersionId(rev.current) 
     versions.get(v) match {
@@ -78,6 +91,9 @@ abstract class VersionedObj[T] extends Versioned {
     }
   }
   
+ /**
+  * Gets item in the context of current version
+  */
   def getItem(): T = {
     this.getItem(this.rev)
   }

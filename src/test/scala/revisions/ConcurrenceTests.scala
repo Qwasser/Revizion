@@ -1,5 +1,7 @@
 package revisions
 
+import VersionedDataTypes.VersionedItem
+
 import org.scalatest.FunSuite
 
 import org.junit.runner.RunWith
@@ -15,6 +17,9 @@ import org.scalacheck.Prop._
 class ConcurrenceTests extends FunSuite{
   def smallDelay = Gen.choose(0, 50)
   
+ /**
+  *  Creating different delays and expect same result
+  */ 
  val determinanceProp = Prop.forAll(smallDelay, smallDelay, smallDelay)((d1, d2, d3) => nestedMerge(d1, d2, d3) == d3)
   
  def nestedMerge(v1: Int, v2: Int, v3: Int) : Int = 

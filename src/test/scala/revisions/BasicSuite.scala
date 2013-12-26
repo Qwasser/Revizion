@@ -1,5 +1,7 @@
 package revisions
 
+import VersionedDataTypes.VersionedItem
+
 import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
@@ -58,8 +60,6 @@ class BasicSuite extends FunSuite{
     
     assert(testVer.getItem == testVal1)
     
-
-    //println ("wtf")
     r1.tailJoin(r2)
     Revision.mainRevision.hardJoin(r1)	
     assert(testVer.getItem == testVal3)

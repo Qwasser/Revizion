@@ -30,6 +30,7 @@ class Revision(val root: Branch) {
   private var task: Promise[Unit] = Promise[Unit]
   
   task.completeWith(future {})
+  
   /**
    * creates new revision and runs task in it
    * as future
@@ -38,8 +39,9 @@ class Revision(val root: Branch) {
   def fork(task: ()=> Unit): Revision = {
     
     //make new branches to track versioned object modifications
-    this.current = Branch(current)
+    
     val newRev = Revision(current, Branch(current))
+    this.current = Branch(current)
     
     val f: Future[Unit] = this.task.future.flatMap(u => future {
       Revision.currentRevision.withValue(newRev){
@@ -51,6 +53,7 @@ class Revision(val root: Branch) {
     newRev.task.completeWith(f)
     newRev
   }
+  
   
   /**
    * allows to continue current task with new One
@@ -68,7 +71,7 @@ class Revision(val root: Branch) {
   }
   
   /**
-   * one revision falls into another after both complite their task
+   * one revision falls into another after both complete their task
    */
   def tailJoin(joiny: Revision): Unit = {  
     
@@ -86,6 +89,9 @@ class Revision(val root: Branch) {
      this.task.completeWith(f)
   }
   
+  /**
+   * Makes current revision wait for other one and join with it
+   */
   def hardJoin(joiny: Revision): Unit = {
     //Await.result(this.task.future, 1.seconds)
     Await.result(joiny.task.future, 5.seconds)
@@ -94,6 +100,9 @@ class Revision(val root: Branch) {
     current.collapse(this)   
   } 
   
+  /**
+   * Helper function for merge
+   */
   private def recursiveMerge(joiny: Revision, branch: Branch): Unit = {
     if (branch.currentVersion != joiny.root.currentVersion) {
       branch.getWritten().foreach(_.merge(this, joiny, branch))
@@ -114,9 +123,15 @@ object Revision {
     rev
   }
   
+  /**
+   * Root revision
+   */
   val mainRevision: Revision = {
     new Revision(Branch.apply())
   }
   
+  /**
+   * Variable, that determines revision in current context
+   */
   val currentRevision = new DynamicVariable[Revision](mainRevision)
 }

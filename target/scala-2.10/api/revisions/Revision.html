@@ -39,8 +39,7 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class, that handles current revision
-</p></div><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class, that handles current revision</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -80,7 +79,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="revisions.Revision#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="revisions.Revision#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(root:revisions.Branch):revisions.Revision"></a>
       <a id="&lt;init&gt;:Revision"></a>
       <h4 class="signature">
@@ -92,7 +91,8 @@
         <span class="name">Revision</span><span class="params">(<span name="root">root: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>)</span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">root</dt><dd class="cmt"><p>Branch is root branch of current revision
+</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -199,6 +199,20 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="revisions.Revision#continueWith" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="continueWith(task:()=&gt;Unit):Unit"></a>
+      <a id="continueWith(()⇒Unit):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">continueWith</span><span class="params">(<span name="task">task: () ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">allows to continue current task with new One
+</p>
     </li><li name="revisions.Revision#current" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="current:revisions.Branch"></a>
       <a id="current:Branch"></a>
@@ -211,20 +225,8 @@
         <span class="name">current</span><span class="result">: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>
       </span>
       </h4>
-      
-    </li><li name="revisions.Revision#doAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="doAction(f:()=&gt;Unit):Unit"></a>
-      <a id="doAction(()⇒Unit):Unit"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">doAction</span><span class="params">(<span name="f">f: () ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
+      <p class="shortcomment cmt">latest branch of current revision
+</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -270,6 +272,21 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="revisions.Revision#fork" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="fork(task:()=&gt;Unit):revisions.Revision"></a>
+      <a id="fork(()⇒Unit):Revision"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fork</span><span class="params">(<span name="task">task: () ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <a href="" class="extype" name="revisions.Revision">Revision</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">creates new revision and runs task in it
+as future
+</p>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -295,7 +312,22 @@
         <span class="name">getVersion</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4>
-      
+      <p class="shortcomment cmt">Returns latest version of revision
+</p>
+    </li><li name="revisions.Revision#hardJoin" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="hardJoin(joiny:revisions.Revision):Unit"></a>
+      <a id="hardJoin(Revision):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hardJoin</span><span class="params">(<span name="joiny">joiny: <a href="" class="extype" name="revisions.Revision">Revision</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Makes current revision wait for other one and join with it
+</p>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -361,6 +393,20 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="revisions.Revision#root" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="root:revisions.Branch"></a>
+      <a id="root:Branch"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">root</span><span class="result">: <a href="Branch.html" class="extype" name="revisions.Branch">Branch</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Branch is root branch of current revision
+</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -374,6 +420,20 @@
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="revisions.Revision#tailJoin" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tailJoin(joiny:revisions.Revision):Unit"></a>
+      <a id="tailJoin(Revision):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tailJoin</span><span class="params">(<span name="joiny">joiny: <a href="" class="extype" name="revisions.Revision">Revision</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">one revision falls into another after both complete their task
+</p>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>

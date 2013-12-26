@@ -99,8 +99,7 @@ versions on write
         <a href="Revision.html"><span class="name">Revision</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      <p class="comment cmt">Class, that handles current revision
-</p>
+      <p class="comment cmt">Class, that handles current revision</p>
     </li><li name="revisions.RootBranch" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="RootBranchextendsBranchwithProductwithSerializable"></a>
       <a id="RootBranch:RootBranch"></a>
@@ -115,6 +114,21 @@ versions on write
       </h4>
       <p class="comment cmt">Root branch, that has no parent
 </p>
+    </li><li name="revisions.SpecialMerge" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SpecialMerge[T]extendsAnyRef"></a>
+      <a id="SpecialMerge[T]:SpecialMerge[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SpecialMerge.html"><span class="name">SpecialMerge</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Trait, that defines merge function
+Must be inherited and mixed in versioned object to define special merge function/
+</p>
     </li><li name="revisions.Versioned" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
       <a id="VersionedextendsAnyRef"></a>
       <a id="Versioned:Versioned"></a>
@@ -127,20 +141,21 @@ versions on write
         <a href="Versioned.html"><span class="name">Versioned</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
-      
-    </li><li name="revisions.VersionedItem" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="VersionedItem[T]extendsVersioned"></a>
-      <a id="VersionedItem[T]:VersionedItem[T]"></a>
+      <p class="comment cmt">Interface between revisions and versioned objects
+</p>
+    </li><li name="revisions.VersionedObj" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="VersionedObj[T]extendsVersioned"></a>
+      <a id="VersionedObj[T]:VersionedObj[T]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <a href="VersionedItem.html"><span class="name">VersionedItem</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></span>
+        <a href="VersionedObj.html"><span class="name">VersionedObj</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Versioned.html" class="extype" name="revisions.Versioned">Versioned</a></span>
       </span>
       </h4>
-      
+      <p class="comment cmt">Template for versioned object.</p>
     </li></ol>
             </div>
 
