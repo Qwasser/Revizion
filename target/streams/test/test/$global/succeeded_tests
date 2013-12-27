@@ -1,5 +1,7 @@
 #Successful Tests
-#Thu Dec 19 18:24:33 NOVT 2013
-VersionedDataTypes.AverageIntSuite=1387452270789
-revisions.BasicSuite=1387452271783
-revisions.ConcurrenceTests=1387452273914
+#Fri Dec 27 13:53:54 NOVT 2013
+VersionedDataTypes.AverageIntSuite=1388127228673
+revisions.BasicSuite=1388127228673
+VersionedColls.SetTest=1388127228657
+VersionedColls.StackTest=1388127228657
+revisions.ConcurrenceTests=1388127234110

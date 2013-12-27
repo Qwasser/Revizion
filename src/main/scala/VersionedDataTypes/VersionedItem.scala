@@ -8,7 +8,7 @@ import revisions.SpecialMerge
  */
 trait SimpleMerge[T] extends SpecialMerge[T]{
   override def mergeFunction(joiner: T, joiny: T, root: T): T = {
-    joiny
+    joiny    
   }
 }
 

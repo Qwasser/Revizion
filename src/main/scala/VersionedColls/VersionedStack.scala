@@ -1,9 +1,7 @@
 package VersionedColls
 import revisions.VersionedObj
 import revisions.SpecialMerge
-import scala.collection.mutable.Stack
-import scala.collection.mutable.Queue
-import scala.xml.Null
+import scala.collection.immutable.Stack
 
 trait StackDAO[T] {
   
@@ -11,15 +9,18 @@ trait StackDAO[T] {
   
   def push(item: T) : Unit = {
     val stack = this.getItem
-    
-    stack.push(item)
+    this.setItem(stack.push(item))
   }
   
   def pop() : T = {
     val stack = this.getItem
     
-    stack.pop   
-  }
+    stack.pop2 match {
+      case (item, newStack) =>
+        this.setItem(newStack)
+        item
+    }
+   }
 }
 
 trait StackMerge[T] extends SpecialMerge[Stack[T]] {
@@ -31,10 +32,12 @@ trait StackMerge[T] extends SpecialMerge[Stack[T]] {
    * in other cases just add joiner stack item to result stack 
    */
   override def mergeFunction(joiner: Stack[T], joiny: Stack[T], root: Stack[T]) : Stack[T] = {
-    val resultStack = new Stack[T]
+    println("joiner $joiner")
+    println(joiny)
+    println(root)
+    var resultStack = new Stack[T]
     val joinyIterator = joiny.reverse.iterator
     val rootIterator = root.reverse.iterator
-    val conflictQueue = new Queue[T]
     
     def nextOption(iterator: Iterator[T]): Option[T]  = {
       if(iterator.hasNext) {
@@ -52,23 +55,23 @@ trait StackMerge[T] extends SpecialMerge[Stack[T]] {
     	joinyOpt match {
     	  case Some(joinyItem) =>
     	    if(joinerItem == joinyItem) {
-    	      resultStack.push(joinerItem)
+    	      resultStack = resultStack.push(joinerItem)
     	    } else {
     	      rootOpt match {
     	        case Some(rootItem) =>
     	          if(rootItem == joinyItem) {
-    	            resultStack.push(rootItem)
+    	            resultStack = resultStack.push(rootItem)
     	          } else {
-    	            resultStack.push(joinerItem)
+    	            resultStack = resultStack.push(joinerItem)
     	          }
     	          
     	        case None =>
-    	          resultStack.push(joinerItem)
+    	          resultStack = resultStack.push(joinerItem)
     	      }
     	    }
     	    
     	  case None =>
-    	    resultStack.push(joinerItem)
+    	    resultStack = resultStack.push(joinerItem)
     	}
     }
    

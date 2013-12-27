@@ -94,7 +94,7 @@ class Revision(val root: Branch) {
    */
   def hardJoin(joiny: Revision): Unit = {
     //Await.result(this.task.future, 1.seconds)
-    Await.result(joiny.task.future, 5.seconds)
+    Await.result(joiny.task.future, 5.seconds) 
     recursiveMerge(joiny, joiny.current)
     joiny.current.release
     current.collapse(this)   
