@@ -116,7 +116,7 @@ abstract class VersionedObj[T] extends Versioned {
    * Finds root element of two branches
    */
   def rootElem(first: Branch, second: Branch): T = {
-    if (first == second) {
+    if (first.currentVersion == second.currentVersion) {
       this.versions.get(this.getLatestVersionId(first)).get
     } else {
       val bSet = rootSet(Set(), first)
@@ -129,20 +129,20 @@ abstract class VersionedObj[T] extends Versioned {
   /**
    * Gets all parents in Set
    */
-  private def rootSet(bSet: Set[Branch], curr: Branch): Set[Branch] = {
+  private def rootSet(bSet: Set[Int], curr: Branch): Set[Int] = {
     if (curr.hasParent) {
-      rootSet(bSet + curr, curr.getParent)
+      rootSet(bSet + curr.currentVersion, curr.getParent)
     } else {
-      bSet + curr
+      bSet + curr.currentVersion
     }
   }
   
   /**
    * Finds common parent, if it in set
    */
-  private def findCommon(bSet: Set[Branch], curr: Branch): Branch =
+  private def findCommon(bSet: Set[Int], curr: Branch): Branch =
   {
-    if (bSet.contains(curr)) {
+    if (bSet.contains(curr.currentVersion)) {
       curr
     } else {
       if (curr.hasParent) {

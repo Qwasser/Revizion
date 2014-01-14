@@ -36,68 +36,98 @@ class Revision(val root: Branch) {
    * as future
    */
   
-  def fork(task: ()=> Unit): Revision = {
+  def nestedFork(task: ()=> Unit): Future[Revision]= {
     
     //make new branches to track versioned object modifications
-    
+    val f1 = this.task.future.flatMap(u => future{
+	    val newRev = Revision(current, Branch(current))
+	    this.current = Branch(current)
+	    
+	    val f: Future[Unit] = this.task.future.flatMap(u => future {
+	      Revision.currentRevision.withValue(newRev){
+	        task.apply
+	      }
+	    })
+	    
+	    newRev.task = Promise[Unit]
+	    newRev.task.completeWith(f)
+	    newRev
+  })
+  
+	//  val f2 = this.task.future.flatMap(u => future{
+	//    this.task = Promise[Unit]
+	//    this.task.completeWith(f1.map(r => Unit))
+	//    this
+	//  })
+  
+  f1
+  }
+  
+  def fork(task: ()=> Unit): Future[Revision]= {
+
     val newRev = Revision(current, Branch(current))
     this.current = Branch(current)
-    
-    val f: Future[Unit] = this.task.future.flatMap(u => future {
-      Revision.currentRevision.withValue(newRev){
-        task.apply
+
+    //make new branches to track versioned object modifications
+    val f1 = future {
+      val f: Future[Unit] = future {
+        Revision.currentRevision.withValue(newRev) {
+          task.apply
+        }
       }
-    })
-    
-    newRev.task = Promise[Unit]
-    newRev.task.completeWith(f)
-    newRev
+      newRev.task = Promise[Unit]
+      newRev.task.completeWith(f)
+      newRev
+    }
+
+    //  val f2 = this.task.future.flatMap(u => future{
+    //    this.task = Promise[Unit]
+    //    this.task.completeWith(f1.map(r => Unit))
+    //    this
+    //  })
+
+    f1
   }
   
   
   /**
    * allows to continue current task with new One
    */
-  def continueWith(task: ()=> Unit): Unit = {
-    val f: Future[Unit] = future {
+  def continueWith(task: ()=> Unit): Revision = {
+    val newF = this.task.future.flatMap(u => future {
       Revision.currentRevision.withValue(this){
         task.apply
       }
-    }
- 
-    val newF = this.task.future.flatMap(u => f)
+    })
     this.task = Promise[Unit]
     this.task.completeWith(newF)
+    this
   }
   
   /**
    * one revision falls into another after both complete their task
    */
-  def tailJoin(joiny: Revision): Unit = {  
-    
-     val f =  this.task.future.flatMap(u =>
-       joiny.task.future).flatMap(u => 
-         future{
-            recursiveMerge(joiny, joiny.current)
-            //println(joiny.current.currentVersion)
-            joiny.current.release
-            
-            current.collapse(this)
-         })
-     
-     this.task = Promise[Unit]
-     this.task.completeWith(f)
+  def tailJoin(joiny: Revision): Revision = {
+    val f = Future.sequence(List(this.task.future, joiny.task.future))
+    this.task = Promise[Unit]
+    this.task.completeWith(f.flatMap(u =>
+      future {
+        recursiveMerge(joiny, joiny.current)
+      }))    
+    this
   }
   
   /**
    * Makes current revision wait for other one and join with it
    */
-  def hardJoin(joiny: Revision): Unit = {
+  def hardJoin(joiny: Future[Revision]): Unit = {
     //Await.result(this.task.future, 1.seconds)
-    Await.result(joiny.task.future, 5.seconds) 
-    recursiveMerge(joiny, joiny.current)
-    joiny.current.release
-    current.collapse(this)   
+    val j = Await.result(joiny, 10.seconds)
+    
+    Await.result(j.task.future, 10.seconds) 
+    recursiveMerge(j, j.current)
+    //joiny.current.release
+    //current.collapse(this)   
   } 
   
   /**
@@ -115,7 +145,34 @@ class Revision(val root: Branch) {
 
 }
 
-object Revision {
+
+
+object Revision { 
+  implicit class RevFuture(f: Future[Revision]){
+	  def fork(task: ()=> Unit): (Future[Revision], Future[Revision]) = {
+	    val w1 = this.f.flatMap(f => 
+	        f.nestedFork(task) 
+	    )    
+	    val w2 = this.f.flatMap(f => 
+	       	f.task.future.flatMap(u => future{
+	        f.task = Promise[Unit]
+	        f.task.completeWith(w1.map(r => Unit))
+	        f
+	       	})
+	      
+	    )
+	    (w1, w2)
+	  }
+	  
+	  def continueWith(task: ()=> Unit): Future[Revision] = {
+	    f.map(f => f.continueWith(task))
+	  }
+	  
+	 def tailJoin(joiny: Future[Revision]): Future[Revision] = {
+	   val rs = Future.sequence(List(f, joiny)) 
+	   rs.map(completedRs => completedRs.head.tailJoin(completedRs.reverse.head))
+	 }
+  }
   
   def apply(root: Branch, current: Branch): Revision = {
     val rev = new Revision(root)

@@ -29,7 +29,7 @@ class BasicSuite extends FunSuite{
       testVer.setItem(testVal2)
       assert(testVer.getItem == testVal2)
       }
-    val r1: Revision = Revision.mainRevision.fork(task)
+    val r1 = Revision.mainRevision.fork(task)
     assert(testVer.getItem == testVal1)
     
     Revision.mainRevision.hardJoin(r1)
@@ -55,12 +55,14 @@ class BasicSuite extends FunSuite{
       assert(testVer.getItem == testVal3)
       }
     
-    val r1: Revision = Revision.mainRevision.fork(task1)
-    val r2: Revision = r1.fork(task2)
+    var r1 = Revision.mainRevision.fork(task1)
+    val fork = r1.fork(task2)
+    val r2 = fork._1
+    r1 = fork._2
     
     assert(testVer.getItem == testVal1)
     
-    r1.tailJoin(r2)
+    r1 = r1.tailJoin(r2)
     Revision.mainRevision.hardJoin(r1)	
     assert(testVer.getItem == testVal3)
   }

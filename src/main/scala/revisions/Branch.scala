@@ -93,7 +93,6 @@ case class RootBranch extends Branch
  * Branch with parent
  */
 case class ParentedBranch(var parent: Branch) extends Branch {
-  
   parent.refCount.incrementAndGet()
 }
 

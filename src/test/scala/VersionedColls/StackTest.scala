@@ -27,7 +27,7 @@ class StackTest extends FunSuite{
     val r1: Revision = Revision.mainRevision.fork(task)
   }
 	
-	test("Merge test") {
+/*	test("Merge test") {
 	  val stack: BasicVStack[Int] = new BasicVStack[Int] 
 	  stack.push(1)
 	  stack.push(2)
@@ -50,6 +50,6 @@ class StackTest extends FunSuite{
 	
 	/*test("Two Stack Test") {
 	  
-	}*/
+	}*/*/
 	
 }

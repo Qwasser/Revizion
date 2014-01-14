@@ -1,20 +1,24 @@
-[0m[[0mdebug[0m] [0mRunning TaskDef(VersionedColls.SetTest, org.scalatest.tools.Framework$$anon$1@7cc5a571, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(revisions.ConcurrenceTests, org.scalatest.tools.Framework$$anon$1@7cc5a571, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(VersionedDataTypes.AverageIntSuite, org.scalatest.tools.Framework$$anon$1@7cc5a571, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(VersionedColls.StackTest, org.scalatest.tools.Framework$$anon$1@7cc5a571, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(revisions.BasicSuite, org.scalatest.tools.Framework$$anon$1@7cc5a571, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(VersionedColls.SetTest, org.scalatest.tools.Framework$$anon$1@7ea07693, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(revisions.BasicSuite, org.scalatest.tools.Framework$$anon$1@7ea07693, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(revisions.ConcurrenceTests, org.scalatest.tools.Framework$$anon$1@7ea07693, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(VersionedColls.QueueTest, org.scalatest.tools.Framework$$anon$1@7ea07693, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(VersionedDataTypes.AverageIntSuite, org.scalatest.tools.Framework$$anon$1@7ea07693, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(VersionedColls.StackTest, org.scalatest.tools.Framework$$anon$1@7ea07693, false, [SuiteSelector])[0m
 [0m[[0mdebug[0m] [0mSummary for ScalaCheck not available.[0m
 [0m[[0mdebug[0m] [0mSummary for specs2 not available.[0m
 [0m[[0minfo[0m] [0mScalaTest[0m
-[0m[[0minfo[0m] [0m[36mRun completed in 6 seconds, 172 milliseconds.[0m[0m
-[0m[[0minfo[0m] [0m[36mTotal number of tests run: 10[0m[0m
-[0m[[0minfo[0m] [0m[36mSuites: completed 5, aborted 0[0m[0m
-[0m[[0minfo[0m] [0m[36mTests: succeeded 10, failed 0, canceled 0, ignored 0, pending 0[0m[0m
-[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
-[0m[[0minfo[0m] [0mPassed: Total 10, Failed 0, Errors 0, Passed 10[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 6 seconds, 827 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 13[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 6, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 12, failed 1, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[31m*** 1 TEST FAILED ***[0m[0m
+[0m[[31merror[0m] [0mFailed: Total 13, Failed 1, Errors 0, Passed 12[0m
 [0m[[0mdebug[0m] [0mPassed tests:[0m
 [0m[[0mdebug[0m] [0m	VersionedDataTypes.AverageIntSuite[0m
 [0m[[0mdebug[0m] [0m	VersionedColls.SetTest[0m
-[0m[[0mdebug[0m] [0m	VersionedColls.StackTest[0m
 [0m[[0mdebug[0m] [0m	revisions.ConcurrenceTests[0m
+[0m[[0mdebug[0m] [0m	VersionedColls.QueueTest[0m
 [0m[[0mdebug[0m] [0m	revisions.BasicSuite[0m
+[0m[[31merror[0m] [0mFailed tests:[0m
+[0m[[31merror[0m] [0m	VersionedColls.StackTest[0m
+[0m[[31merror[0m] [0m(test:[31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
